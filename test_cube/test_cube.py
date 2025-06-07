@@ -89,6 +89,7 @@ divSchemes
 {
     default         none;
     div(phi,U)      Gauss linear;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
 laplacianSchemes
 {
@@ -156,12 +157,8 @@ endTime         200;
 deltaT          1;
 writeControl    timeStep;
 writeInterval   200;
-simulationType  laminar;
 purgeWrite      0;
 """)
-    (case_dir / "system" / "controlDict").write_text(
-        foam_header("controlDict") + controlDict
-    )
     (case_dir / "system" / "controlDict").write_text(
         foam_header("controlDict") + controlDict
     )
@@ -177,9 +174,7 @@ nu              [0 2 -1 0 0 0 0] 1e-6;
 
         # constant/momentumTransport (required by this build)
     (case_dir / "constant" / "momentumTransport").write_text(
-        foam_header("momentumTransport") + """
-transportModel  Newtonian;
-"""
+        foam_header("momentumTransport") + "simulationType laminar;\n"
     )
 
     # 0/U
