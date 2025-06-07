@@ -115,6 +115,7 @@ solvers
     p
     {
         solver          PCG;
+        preconditioner  DIC;
         tolerance       1e-06;
         relTol          0;
     }
