@@ -1,0 +1,12 @@
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      sampleDict;
+}
+
+interpolationScheme cellPoint;
+sets ( centerLine uniform (0 2.5 2.5) (5 2.5 2.5) 100 );
+fields ( U );

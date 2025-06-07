@@ -1,0 +1,19 @@
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * //
+
+application     simpleFoam;
+startFrom       startTime;
+startTime       0;
+endTime         200;
+deltaT          1;
+writeControl    timeStep;
+writeInterval   200;
+simulationType  laminar;
+purgeWrite      0;
